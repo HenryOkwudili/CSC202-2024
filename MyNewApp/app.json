@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-first-mobile-app-template-tabs",
-    "slug": "my-first-mobile-app-template-tabs",
+    "name": "MyNewApp",
+    "slug": "MyNewApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
