@@ -1,57 +1,79 @@
-import React, {useState, useEffect} from 'react';
-import ShowUser from './ShowUser';
-import { UserFetched } from './type-defs';
-import {View, Text, TextInput} from 'react-native';
-type Props = {
-    name?:string;
-}
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
-const Component5: React.FC<Props> = ({name = "ife"})=>{
-    const [userFetched, setUserFetched] = useState<UserFetched>({ user: null, error:null});
-    const [userId, setUserId] = useState<string>('1');
+const PatientBiodata = () => {
+    const [clinicDate, setClinicDate] = useState<string>("");  // Changed to string for input compatibility
+    const [NoA, setNoA] = useState<string>("");
+    const [medPres, setMedPres] = useState<string>("");
+    const [procedureUnd, setProcedureUnd] = useState<string>("");
+    const [DoNApt, setDoNApt] = useState<string>("");  // Changed to string for input compatibility
 
-    const setUserIdToFetch = (text: string)=>{
-        if (text !=''){
-            setUserId(text);
-        }
-    }
-
-    const fetchData = async()=>{
-        try{
-            const response = await fetch('https://jsonplaceholder.typicode.com/users/${userId}');
-            if(response.status < 200 || response.status > 299){
-                setUserFetched({user: null, error: 'Response status = $(response.status'});
-                return;
-            }
-            const data = await response.json();
-            setUserFetched({user:data, error:null});
-        }catch (error: any){
-            setUserFetched({user:null, error: error.message});
-
-        }
-    };
-
-    useEffect(()=>{
-        fetchData();
-    }, [userId]);//fetch user whenever userURL changes
-
-    return(
-        <View>
-            <Text>Hello {name}. Greetingsfrom HelloWorld5.</Text>
-            <View>
-                <TextInput placeholder="Enter UserId (1 to 10) here to fetch immediately..."
-                onChangeText={setUserIdToFetch} keyboardType='numeric' autoFocus/>
-            </View>
-            <View>
-                <TextInput onSubmitEditing={(event)=> setUserIdToFetch('${event.nativeEvent.tsx}')}
-                placeholder="Enter UserId (1 to 10) here. Press enter when done"
-                keyboardType='numeric'/>
-            </View>
-            <View>
-                <ShowUser userFetched={userFetched}/>
+    return (
+        <View style={{ padding: 20 }}>
+            <Text>Clinical Record</Text>
+            <View style={{ marginVertical: 10 }}>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Clinic Date (mm/dd/yy)"
+                        onChangeText={setClinicDate}
+                        value={clinicDate}
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Nature of Ailment"
+                        onChangeText={setNoA}
+                        value={NoA}
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Medicine Prescribed"
+                        onChangeText={setMedPres}
+                        value={medPres}
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Procedure Undertaken"
+                        onChangeText={setProcedureUnd}
+                        value={procedureUnd}
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        placeholder="Date of Next Appointment (mm/dd/yy)"
+                        onChangeText={setDoNApt}
+                        value={DoNApt}
+                        style={styles.input}
+                    />
+                </View>
+                <Button
+                    title="Enter"
+                    onPress={() => { /* Add your onPress logic here */ }}
+                />
             </View>
         </View>
-    )
+    );
 }
 
-export default Component5;
+const styles = StyleSheet.create({
+    inputContainer: {
+        marginBottom: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: '#ccc',
+    },
+    input: {
+        borderBottomWidth: 0,
+        borderBottomColor: '#ccc',
+        padding: 5,
+    },
+});
+
+export default PatientBiodata;

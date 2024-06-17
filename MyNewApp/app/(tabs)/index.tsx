@@ -17,30 +17,20 @@ export const TabOneScreen:React.FC=() =>{
   return (
     <SafeAreaView style={styles.container}>
     <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.container}>
-    <ScrollView>
-    <View style={styles.screenHeader}>
-    <Image style={styles.logo}
-    source={require('../../assets/images/favicon.png')}
-    />
-    </View>
-    <View style={styles.screenBody}>
-    <Component1 />
-    <Separator/>
-    <Component2 name="Mary" />
-    <Separator/>
-    <Component2 />
-    <Separator/>
-    <Component3 />
-    <Separator/>
-    <Component4 />
-    <Separator/>
-    <Component5 />
-    <Separator/>
-    <Component6 />
-    </View>
-    </ScrollView>
+      <ScrollView>
+        <View style={styles.screenHeader}>
+          <Image style={styles.logo}
+            source={require('../../assets/images/clinic.png')}
+          />
+        </View>
+        <View style={styles.screenBody}>
+          <Component1 />
+          <Separator />
+          <Component2 />
+        </View>
+      </ScrollView>
     </KeyboardAvoidingView>
-    </SafeAreaView>
+  </SafeAreaView>
   );
 }
 
@@ -68,17 +58,18 @@ const styles = StyleSheet.create({
     
     screenHeader: {
       flex: 1,
-      paddingTop: 27,
+      paddingTop: 0,
       justifyContent: 'center',
-      backgroundColor: 'darkblue'
+      backgroundColor: 'yellow'
       },
       screenBody: {
+      backgroundColor: 'yellow',
       flex: 6,
       justifyContent: 'center',
       },
       logo: {
       alignSelf: 'center',
-      width: 200,
+      width: 300,
       height: 82,
       margin: 9
       }

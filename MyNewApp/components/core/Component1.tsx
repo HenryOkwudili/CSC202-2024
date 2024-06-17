@@ -5,7 +5,7 @@ const Component1:React.FC=()=>{
     return(
         <View>
             <Text>
-            Hello from <Text style={{color: 'red'}}>Component1!</Text>
+            HLX <Text style={{color: 'green'}}>Clinics</Text>
             </Text>
         </View>
     );
