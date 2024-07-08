@@ -5,9 +5,9 @@ const PatientBiodata = () => {
     const [firstName, setFirstName] = useState<string>("");
     const [surName, setSurName] = useState<string>("");
     const [middleName, setMiddleName] = useState<string>("");
-    const [DOB, setDOB] = useState<string>("");  // Changed to string for input compatibility
+    const [DOB, setDOB] = useState<string>("");  
     const [homeAddress, setHomeAddress] = useState<string>("");
-    const [DOR, setDOR] = useState<string>("");  // Changed to string for input compatibility
+    const [DOR, setDOR] = useState<string>("");  
     const [mat_no, setMat_no] = useState<string>("");
 
     return (
@@ -72,7 +72,7 @@ const PatientBiodata = () => {
                 </View>
                 <Button
                     title="Enter"
-                    onPress={() => { /* Add your onPress logic here */ }}
+                    onPress={() => { /* onPress logic goes here */ }}
                 />
             </View>
         </View>

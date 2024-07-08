@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 const PatientBiodata = () => {
-    const [clinicDate, setClinicDate] = useState<string>("");  // Changed to string for input compatibility
+    const [clinicDate, setClinicDate] = useState<string>("");  
     const [NoA, setNoA] = useState<string>("");
     const [medPres, setMedPres] = useState<string>("");
     const [procedureUnd, setProcedureUnd] = useState<string>("");
-    const [DoNApt, setDoNApt] = useState<string>("");  // Changed to string for input compatibility
+    const [DoNApt, setDoNApt] = useState<string>(""); 
 
     return (
         <View style={{ padding: 20 }}>
